@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<script src="js/jquery.js"></script> 
+		<script>
+		
+			
+			// Global variables
+			var CARDS = [];
+			var OPPONENT_SLOTS = [];
+			var PLAYER_SLOTS = [];
+			
+			
+		    // Constructors
+		
+			//Controlls the playing field, and has the array with playing fields.
+			function gameMaster(id, players, description){
+			}
+		
+			// The basic card constructor
+			// It will be expanded as we go
+			// Should be added to a "database" with all the cards
+			//
+			// Id should be a number above -1
+			// Name for card name
+			// type should be the card type. 
+			//{
+			//     0: Normal spell (for now)
+			//     Type numbers and meanings will be added here
+			// 
+			//}
+			// text is the description of the card
+			// image is the image url of the card
+			// May end up replacing this with the JSON equivalent when the data is already there.
+			
+			function card(id, name="blank", type=0, text="This wont do much...", image=""){
+				this.name = name;
+				this.type = type;
+				this.text = text;
+				this.image = image;
+			}
+			
+			// Playing field constructor
+			// Array with cardSlot ids. Card slots should be stored in a variable for the whole game.
+			
+			function playingField(cardSlots){
+				this.cardSlots = cardSlots;
+			}
+			
+			
+			// The basic card slot constructor
+			// Should prefereably not see alot of modificaitions to the constructor itself
+			// Add functions instead
+			//
+			// Id should be a number above -1
+			// Current card should hold the card id of the correct card
+			//
+			//
+			function cardSlot(id,currentCard=null, type = "normal"){
+				this.id = id;
+				this.currentCard = currentCard;
+				this.type = type;
+			}
+			
+			
+			// The basic hand constructor
+			// Should be pretty simple to implement, and should contain a default empty array of card ids
+			//
+			// Player should either be 0 (for the player), or 1 (for the opponent)
+			//
+			function hand(player){
+				this.id = player;
+				this.player = player;
+				this.cards = {};
+			}
+		
+		
+			
+		</script>
+		
+		<style>
+			.card-slot {
+				float:left;
+				margin-left: 25px;
+			}
+			#playingMat {
+				padding-left: 25px;
+				padding-top: 15px;
+				height: 420px;
+				width: 762.5px;
+				border-color: gray;
+				border-style:ridge; 
+			}
+		
+		</style>
+	</head>
+	
+	
+	<body>
+	
+	<div class="card" style="height: 187.5px; width: 112.5px; background-color: grey;" hidden>
+	  <div class="card-title" style="padding-left:10px;padding-top:7.5px;height:17.5px;">
+		Hrrs01
+	  </div>
+	  <div class="card-image" style="height:65px; width:100px; background-color: white; margin-left:6.25px;">
+		
+	  </div>
+	  <div class="card-description" style="font-size:9px;padding-left:15px;">
+			<p>
+			  Hey there
+			</p>
+			<p>
+			  This is a card text
+			</p>
+	  </div>
+	</div>
+	</br>
+	<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;" hidden>
+	</div>
+
+	<div id="game">
+		<div id="gameScreen">
+			</br>
+			<div id="opponentHand" style="height: 190px; width: 787.5px; border-color: black; border-style:dotted;">
+			</div>
+			</br>
+			<div id="playingMat" >
+				<div id="opponent-monsters" style=" height: 195px;">
+					<div class="card-slot opponent" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot opponent" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot opponent" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot opponent" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot opponent" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+				</div>
+				<br>
+				<div id="player-monsters" style="height: 195px;">
+					<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+					<div class="card-slot" style="height: 190px; width: 115px; border-width:0.5px; border-color: black; border-style:solid;">
+					</div>
+				</div>
+			</div>
+			</br>
+			<div id="playerHand" style="height: 190px; width: 787.5px; border-color: black; border-style:solid">
+			
+			</div>	
+		</div>
+	</div>	
+	
+	</body>
+
+
+</html>
